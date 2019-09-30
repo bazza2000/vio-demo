@@ -40,7 +40,7 @@ pipeline {
       agent {
         docker {
           image 'cypress/browsers:chrome69'
-          args '-v /var/run/docker.sock:/var/run/docker.sock --add-host=demo.viosystems.com:54.171.82.255'
+          args '-v /var/run/docker.sock:/var/run/docker.sock --env PERCY_TOKEN=0d2bcb1a8cb81aac8dd9392aa42f37a1f5668efa89c2aa738849dca4a2c277ac --add-host=demo.viosystems.com:54.171.82.255'
         }
       }
       steps {
