@@ -36,10 +36,16 @@ pipeline {
         sh 'npm install'
         sh 'cypress run - npm'
       }
-      post {
-        always {
-            junit 'junit.xml'
+    }
+    stage('Cypress Test') {
+      agent {
+        docker {
+          image 'cypress/browsers:chrome69'
+          args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
+      }
+      steps {
+        sh 'cypress run - npm'
       }
     }
     stage('React Build') {
