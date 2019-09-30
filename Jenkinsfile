@@ -34,7 +34,7 @@ pipeline {
       steps {
         sh 'npm set strict-ssl false'
         sh 'npm install'
-        nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: false, iqApplication: selectedApplication('vio-demo'), iqScanPatterns: [[scanPattern: '**/node_modules/*.js'], [scanPattern: '**/build/*.js']], iqStage: 'build', jobCredentialsId: 'jenkins-nexus'
+        sh 'cypress run'
       }
       post {
         always {
