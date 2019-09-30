@@ -44,7 +44,7 @@ pipeline {
         }
       }
       steps {
-        sh 'cypress run - npm'
+        sh '$(npm bin)/cypress run --browser chrome'
       }
     }
     stage('React Build') {
