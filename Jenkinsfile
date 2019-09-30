@@ -46,7 +46,8 @@ pipeline {
       steps {
         sh 'npm set strict-ssl false'
         sh 'npm install'
-        sh '$(npm bin)/percy exec -- $(npm bin)/cypress run --browser chrome'
+        //sh '$(npm bin)/percy exec -- $(npm bin)/cypress run --browser chrome'
+        sh 'npm test'
       }
     }
     stage('React Build') {
