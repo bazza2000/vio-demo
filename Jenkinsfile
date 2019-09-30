@@ -34,7 +34,7 @@ pipeline {
       steps {
         sh 'npm set strict-ssl false'
         sh 'npm install'
-        sh 'cypress run'
+        sh 'node_modules/.bin/cypress run'
       }
       post {
         always {
