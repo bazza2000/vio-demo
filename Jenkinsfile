@@ -50,19 +50,6 @@ pipeline {
         sh 'npm test'
       }
     }
-    stage('React Build') {
-      parallel {
-        stage('React Build/Push PIBS') {
-          steps {
-            sh 'docker build -t docker.viosystems.com:8443/vio-demo:${BUILD_NUMBER} .'
-            sh 'docker login  docker.viosystems.com:8443 -u ${GITHUB_ASH_CREDS_USR} -p ${GITHUB_ASH_CREDS_PSW}'
-            sh 'docker push   docker.viosystems.com:8443/vio-demo:${BUILD_NUMBER}'
-            sh 'docker tag   docker.viosystems.com:8443/vio-demo:${BUILD_NUMBER} docker.viosystems.com:8443/vio-demo:latest'
-            sh 'docker push   docker.viosystems.com:8443/vio-demo:latest'
-          }
-        }
-      }
-    }
   }
   environment {
     GITHUB_ASH_CREDS  = credentials('jenkins-user-for-nexus-repository')
