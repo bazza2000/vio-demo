@@ -34,7 +34,6 @@ pipeline {
       steps {
         sh 'npm set strict-ssl false'
         sh 'npm install'
-        sh 'cypress run - npm'
       }
     }
     stage('Cypress Test') {
