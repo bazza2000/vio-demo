@@ -40,7 +40,7 @@ pipeline {
       agent {
         docker {
           image 'cypress/browsers:chrome69'
-          args '-v /var/run/docker.sock:/var/run/docker.sock'
+          args '-v /var/run/docker.sock:/var/run/docker.sock --add-host=demo.viosystems.com:54.171.82.255'
         }
       }
       steps {
